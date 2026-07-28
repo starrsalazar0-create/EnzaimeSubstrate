@@ -13,7 +13,7 @@ export default function OpeningLetter() {
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#7b5364] mb-4">Field Note 001 — Observation Log</p>
           <div className="grid gap-3 sm:grid-cols-2 text-sm text-[#5e4452]">
             <div><span className="font-semibold">Subject:</span> Enzaime</div>
-            <div><span className="font-semibold">Observer:</span> Substrate</span></div>
+            <div><span className="font-semibold">Observer:</span> Substrate</div>
             <div className="sm:col-span-2"><span className="font-semibold">Date of Initial Contact:</span> January 13, 2026</div>
           </div>
         </div>
