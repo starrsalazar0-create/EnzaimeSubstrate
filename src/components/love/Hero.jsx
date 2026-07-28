@@ -69,7 +69,6 @@ export default function Hero() {
         transition={reduceMotion ? undefined : { duration: 1.2 }}
         className="text-center z-10 px-6"
       >
-        <div className="light-streak" aria-hidden="true" />
         <div className="flex items-center justify-center gap-2 mb-6">
           <Activity className="w-4 h-4 text-botanical" />
           <span className="font-mono text-xs text-botanical uppercase tracking-[0.3em]">Bonded Pair Analysis</span>
@@ -96,7 +95,7 @@ export default function Hero() {
         </div>
         <p className="font-mono text-[0.6rem] text-botanical/60 uppercase tracking-[0.2em] mt-4">Observation Period: Ongoing · Bond Classification: Covalent</p>
 
-        {/* CTA removed per request: content is all on one page */}
+        {/* CTA removed to keep site as a single page */}
       </motion.div>
 
       {reduceMotion ? (
