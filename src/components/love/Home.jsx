@@ -4,7 +4,6 @@ import Hero from '@/components/love/Hero';
 import LeafDivider from '@/components/love/LeafDivider';
 import OpeningLetter from '@/components/love/OpeningLetter';
 import MusicPlayer from '@/components/love/MusicPlayer';
-import PhotoCollage from '@/components/love/PhotoCollage';
 import LoveNotes from '@/components/love/LoveNotes';
 import BucketList from '@/components/love/BucketList';
 
@@ -23,8 +22,6 @@ export default function Home() {
         <OpeningLetter />
         <LeafDivider />
         <MusicPlayer />
-        <LeafDivider />
-        <PhotoCollage />
         <LeafDivider />
         <LoveNotes />
         <LeafDivider />

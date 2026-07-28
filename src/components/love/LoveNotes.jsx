@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function LoveNotes() {
   const reasons = [
@@ -20,6 +21,8 @@ export default function LoveNotes() {
     }
   ];
 
+  const [activeIndex, setActiveIndex] = useState(null);
+
   return (
     <section className="max-w-4xl mx-auto px-6 py-10 bg-white/90 border border-[#d9b0ba]/30 rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.06)]">
       <div className="mb-6">
@@ -27,14 +30,57 @@ export default function LoveNotes() {
         <p className="text-sm text-[#5e4452] mt-2">select to reveal affinity data</p>
       </div>
       <div className="space-y-6">
-        {reasons.map((reason) => (
-          <div key={reason.title} className="rounded-3xl bg-[#f7eef1] p-6 border border-[#e9d0d8]/70">
-            <p className="font-mono text-xs text-[#7b5364] uppercase tracking-[0.26em] mb-3">{reason.title}</p>
-            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-[#9f5673] mb-3">tap to analyze</p>
-            <p className="font-semibold text-[#6f4d5b] mb-3">analysis result</p>
-            <p className="text-sm leading-7 text-[#5e4452]">{reason.text}</p>
-          </div>
-        ))}
+        {reasons.map((reason, index) => {
+          const selected = activeIndex === index;
+          return (
+            <motion.button
+              key={reason.title}
+              type="button"
+              onClick={() => setActiveIndex(selected ? null : index)}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className={`w-full text-left rounded-3xl p-6 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#9f5673]/40 ${selected ? 'border-[#9f5673] bg-[#f8e8ef] shadow-[0_20px_80px_rgba(159,86,115,0.12)] ring-2 ring-[#d38fb7]/30' : 'border-[#e9d0d8]/70 bg-[#f7eef1] hover:border-[#c28aa7]'}`}
+              aria-expanded={selected}
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="font-mono text-xs text-[#7b5364] uppercase tracking-[0.26em] mb-3">{reason.title}</p>
+                  <p className="text-[0.7rem] uppercase tracking-[0.28em] text-[#9f5673] mb-3">tap to analyze</p>
+                </div>
+                <span className="font-display text-lg text-[#9f5673]">{selected ? '▾' : '▸'}</span>
+              </div>
+              <div className="mt-3 overflow-hidden">
+                <AnimatePresence initial={false}>
+                  {selected ? (
+                    <motion.div
+                      key="content"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25, ease: 'easeOut' }}
+                      className="space-y-3"
+                    >
+                      <p className="font-semibold text-[#6f4d5b]">analysis result</p>
+                      <p className="text-sm leading-7 text-[#5e4452]">{reason.text}</p>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="placeholder"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25, ease: 'easeOut' }}
+                      className="space-y-3"
+                    >
+                      <p className="font-semibold text-[#6f4d5b]">analysis result</p>
+                      <p className="text-sm leading-7 text-[#5e4452]/80">Tap to analyze this binding site and reveal the affinity summary.</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.button>
+          );
+        })}
       </div>
     </section>
   );
