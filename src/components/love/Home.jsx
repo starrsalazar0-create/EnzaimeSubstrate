@@ -9,6 +9,7 @@ import BucketList from '@/components/love/BucketList';
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-[#f3ece9] via-[#f6d6da]/20 to-[#f6ece6] overflow-x-hidden">
+      <div className="background-texture" aria-hidden="true" />
       <div className="absolute inset-0 grid grid-cols-[repeat(12,minmax(0,1fr))] gap-4 opacity-10 pointer-events-none">
         {Array.from({ length: 12 }).map((_, idx) => (
           <div key={idx} className="border-r border-[#c3b2b5]/20" />
@@ -18,11 +19,18 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <LeafDivider />
-        <OpeningLetter />
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="card reveal" data-parallax="0.02">
+            <OpeningLetter />
+          </div>
+          <div className="card reveal" data-parallax="0.03">
+            <LoveNotes id="lovenotes" />
+          </div>
+          <div className="card reveal" data-parallax="0.015">
+            <BucketList />
+          </div>
+        </div>
         <LeafDivider />
-        <LoveNotes />
-        <LeafDivider />
-        <BucketList />
         <footer className="text-center py-12 px-6 border-t border-[#a0668b]/15">
           <p className="font-mono text-[0.6rem] text-[#6f4d5b] uppercase tracking-[0.3em] mb-2">END OF REPORT</p>
           <p className="font-display text-2xl text-[#9f5673]">Enzaime & Substrate</p>

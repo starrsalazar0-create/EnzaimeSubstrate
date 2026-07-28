@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
-export default function LoveNotes() {
+export default function LoveNotes(props) {
   const reasons = [
     {
       title: 'REASON #1',
@@ -25,7 +25,7 @@ export default function LoveNotes() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="max-w-4xl mx-auto px-6 py-10 bg-white/90 border border-[#d9b0ba]/30 rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.06)]">
+    <section id={props.id} className="max-w-4xl mx-auto px-6 py-10 bg-white/90 border border-[#d9b0ba]/30 rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.06)]">
       <div className="mb-6">
         <p className="font-mono text-[0.7rem] text-[#6f4d5b] uppercase tracking-[0.28em]">Active Binding Sites</p>
         <p className="text-sm text-[#5e4452] mt-2">select to reveal affinity data</p>

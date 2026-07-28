@@ -71,3 +71,71 @@ button {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
 }
+
+/* Subtle background texture and animated accents */
+.background-texture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,220,230,0.06), transparent 10%),
+    radial-gradient(circle at 85% 80%, rgba(220,235,255,0.04), transparent 12%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 40%);
+  mix-blend-mode: overlay;
+}
+
+.background-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.02), transparent 8%), radial-gradient(circle at 70% 70%, rgba(0,0,0,0.02), transparent 10%);
+  opacity: 0.9;
+}
+
+/* Vignette overlay for hero depth */
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.06) 100%);
+  mix-blend-mode: multiply;
+  z-index: 5;
+}
+
+/* Card component */
+.card {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(159,86,115,0.08);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(159,86,115,0.06);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* CTA card inside hero */
+.cta-card {
+  display: inline-block;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,240,245,0.9));
+  border: 1px solid rgba(159,86,115,0.12);
+  box-shadow: 0 8px 30px rgba(159,86,115,0.08);
+}
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity 420ms ease, transform 420ms ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Parallax helper */
+[data-parallax] { will-change: transform; }
+
+/* Small animated floating particles */
+.particle {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(12px);
+  opacity: 0.12;
+  animation: float 8s ease-in-out infinite;
+}
+@keyframes float { 0% { transform: translateY(0) } 50% { transform: translateY(-12px) } 100% { transform: translateY(0) } }

@@ -36,6 +36,26 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24">
+      <div className="absolute inset-0 z-0" aria-hidden>
+        <svg className="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="g1" cx="30%" cy="30%" r="50%">
+              <stop offset="0%" stopColor="#ffdce6" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#ffdce6" stopOpacity="0" />
+            </radialGradient>
+            <radialGradient id="g2" cx="80%" cy="70%" r="50%">
+              <stop offset="0%" stopColor="#e7f1ff" stopOpacity="0.08" />
+              <stop offset="100%" stopColor="#e7f1ff" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#g1)" />
+          <circle cx="820" cy="120" r="120" fill="url(#g2)" />
+          <g fill="#f6d6da" opacity="0.06">
+            <path d="M120 400c40-90 140-120 220-80s120 120 220 80 180-20 220 40v160H0V440c40-60 120-20 120-40z" />
+          </g>
+        </svg>
+      </div>
+      <div className="vignette" />
       <div className="absolute left-2 md:left-12 top-0 h-full w-16 md:w-24 text-botanical opacity-30 pointer-events-none">
         <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(143,133,111,0.15),_transparent_45%)]" />
       </div>
@@ -73,8 +93,19 @@ export default function Hero() {
             <TimeUnit value={String(elapsed.seconds).padStart(2, '0')} label="Sec" />
           </div>
         </div>
-
         <p className="font-mono text-[0.6rem] text-botanical/60 uppercase tracking-[0.2em] mt-4">Observation Period: Ongoing · Bond Classification: Covalent</p>
+
+        <div className="mt-8">
+          <div className="cta-card">
+            <div className="flex items-center gap-4">
+              <div>
+                <p className="font-mono text-xs text-[#7b5364] uppercase">Explore</p>
+                <p className="font-semibold text-[#6f4d5b]">Love Notes & Experiments</p>
+              </div>
+              <a href="#lovenotes" className="ml-auto inline-flex items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-[#9f5673] hover:bg-[#8a435f]">Open</a>
+            </div>
+          </div>
+        </div>
       </motion.div>
 
       {reduceMotion ? (
