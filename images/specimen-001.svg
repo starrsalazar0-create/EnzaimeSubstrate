@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420">
+  <rect width="600" height="420" fill="#f6d6da"/>
+  <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="#8a4f70" font-family="Inter, sans-serif" font-size="42">Specimen 001</text>
+  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#6f4d5b" font-family="JetBrains Mono, monospace" font-size="20">your image here</text>
+</svg>
