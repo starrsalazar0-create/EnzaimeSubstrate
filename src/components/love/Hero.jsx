@@ -96,17 +96,7 @@ export default function Hero() {
         </div>
         <p className="font-mono text-[0.6rem] text-botanical/60 uppercase tracking-[0.2em] mt-4">Observation Period: Ongoing · Bond Classification: Covalent</p>
 
-        <div className="mt-8">
-          <div className="cta-card">
-            <div className="flex items-center gap-4">
-              <div>
-                <p className="font-mono text-xs text-[#7b5364] uppercase">Explore</p>
-                <p className="font-semibold text-[#6f4d5b]">Love Notes & Experiments</p>
-              </div>
-              <a href="#lovenotes" className="ml-auto inline-flex items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-[#9f5673] hover:bg-[#8a435f]">Open</a>
-            </div>
-          </div>
-        </div>
+        {/* CTA removed per request: content is all on one page */}
       </motion.div>
 
       {reduceMotion ? (
