@@ -5,13 +5,11 @@ import LeafDivider from '@/components/love/LeafDivider';
 import OpeningLetter from '@/components/love/OpeningLetter';
 import LoveNotes from '@/components/love/LoveNotes';
 import BucketList from '@/components/love/BucketList';
-import Particles from '@/components/love/Particles';
 
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-[#f3ece9] via-[#f6d6da]/20 to-[#f6ece6] overflow-x-hidden">
       <div className="background-texture" aria-hidden="true" />
-      <Particles count={48} />
       <div className="absolute inset-0 grid grid-cols-[repeat(12,minmax(0,1fr))] gap-4 opacity-10 pointer-events-none">
         {Array.from({ length: 12 }).map((_, idx) => (
           <div key={idx} className="border-r border-[#c3b2b5]/20" />
