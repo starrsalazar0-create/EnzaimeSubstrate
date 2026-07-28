@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Activity, ChevronDown } from 'lucide-react';
 
 const START_DATE = new Date('2026-01-13T00:00:00Z');
@@ -17,6 +17,7 @@ function TimeUnit({ value, label }) {
 
 export default function Hero() {
   const [elapsed, setElapsed] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const updateElapsed = () => {
@@ -43,9 +44,9 @@ export default function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
+        initial={reduceMotion ? undefined : { opacity: 0, y: 30 }}
+        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={reduceMotion ? undefined : { duration: 1.2 }}
         className="text-center z-10 px-6"
       >
         <div className="flex items-center justify-center gap-2 mb-6">
@@ -76,13 +77,19 @@ export default function Hero() {
         <p className="font-mono text-[0.6rem] text-botanical/60 uppercase tracking-[0.2em] mt-4">Observation Period: Ongoing · Bond Classification: Covalent</p>
       </motion.div>
 
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 text-rose-300"
-      >
-        <ChevronDown className="w-8 h-8" />
-      </motion.div>
+      {reduceMotion ? (
+        <div className="absolute bottom-8 text-rose-300">
+          <ChevronDown className="w-8 h-8" />
+        </div>
+      ) : (
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          className="absolute bottom-8 text-rose-300"
+        >
+          <ChevronDown className="w-8 h-8" />
+        </motion.div>
+      )}
     </section>
   );
 }
