@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "cp index.template.html index.html && vite build",
+    "deploy": "npm run build && rm -rf assets/* && mkdir -p assets && cp dist/index.html index.html && cp dist/assets/* assets/",
     "preview": "vite preview"
   },
   "dependencies": {
