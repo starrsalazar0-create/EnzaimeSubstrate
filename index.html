@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enzaime & Substrate 💕</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap');
+
+    :root {
+      color-scheme: dark;
+      color: #f5f8ff;
+      background: #0c1222;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: radial-gradient(circle at top, rgba(73, 126, 255, 0.18), transparent 35%),
+                  radial-gradient(circle at bottom right, rgba(143, 85, 255, 0.14), transparent 30%),
+                  #0c1222;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .main-container {
+      position: relative;
+      width: min(1080px, 100%);
+      z-index: 1;
+      text-align: center;
+      padding: 40px 32px 56px;
+      border-radius: 32px;
+      background: rgba(14, 18, 40, 0.88);
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.32);
+      overflow: hidden;
+    }
+
+    .badge-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: rgba(88, 103, 255, 0.14);
+      border: 1px solid rgba(115, 140, 255, 0.16);
+    }
+
+    .pulse-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #6b8cfe;
+      box-shadow: 0 0 0 6px rgba(107, 140, 254, 0.18);
+      animation: pulse 1.8s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.45; }
+    }
+
+    .badge-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      color: #dfe7ff;
+      text-transform: uppercase;
+    }
+
+    .intro-text {
+      font-size: clamp(1.05rem, 1.9vw, 1.34rem);
+      color: #cfd8ff;
+      line-height: 1.75;
+      margin: 0 auto 32px;
+      max-width: 720px;
+    }
+
+    .subject-block {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 34px;
+      padding: 24px 30px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .subject-label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #8fa4ff;
+    }
+
+    .subject-name {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: #f8fbff;
+      letter-spacing: -0.04em;
+      margin: 0;
+    }
+
+    .plus-sign {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 2.5rem;
+      color: #7d88ff;
+      margin: 0 0 0.25rem;
+    }
+
+    .counter-card {
+      background: rgba(37, 43, 79, 0.9);
+      border: 1px solid rgba(112, 128, 255, 0.12);
+      border-radius: 28px;
+      padding: 28px 26px;
+      text-align: left;
+      margin: 0 auto 32px;
+      max-width: 860px;
+    }
+
+    .counter-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #e9efff;
+      margin-bottom: 18px;
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .time-val {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.4rem;
+      color: #f3f6ff;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .time-lbl {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.76rem;
+      color: #aab4fd;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+
+    .meta-text {
+      font-size: 0.95rem;
+      color: #b2bdff;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 28px auto;
+    }
+
+    .letter-box {
+      background: rgba(85, 96, 227, 0.08);
+      border: 1px solid rgba(109, 129, 255, 0.12);
+      border-radius: 24px;
+      padding: 24px 26px;
+      text-align: left;
+    }
+
+    .letter-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #d7e0ff;
+      margin-bottom: 16px;
+    }
+
+    .letter-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #e9f0ff;
+      margin: 0 0 22px;
+    }
+
+    .letter-sign {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f7faff;
+      text-align: right;
+    }
+
+    footer {
+      width: 100%;
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      color: #9fb1ff;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.8rem;
+      margin: 0;
+      color: #c1d1ff;
+    }
+
+    .footer-status {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      margin: 0;
+      color: #a7b7ff;
+    }
+
+    @media (max-width: 740px) {
+      .counter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .subject-block {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="badge-container">
+      <span class="pulse-dot"></span>
+      <span class="badge-text">Enzaime & Substrate</span>
+    </div>
+
+    <p class="intro-text">A little celebration page for the pair of silly hearts who keep each other smiling. Every second together counts, especially when it starts on a date worth remembering.</p>
+
+    <div class="subject-block">
+      <div>
+        <p class="subject-label">Together Since</p>
+        <h1 class="subject-name">January 13, 2026</h1>
+      </div>
+      <div class="plus-sign">+</div>
+    </div>
+
+    <div class="counter-card">
+      <p class="counter-title">Relationship Time Elapsed</p>
+      <div class="counter-grid">
+        <div>
+          <p id="days" class="time-val">0</p>
+          <p class="time-lbl">Days</p>
+        </div>
+        <div>
+          <p id="hours" class="time-val">0</p>
+          <p class="time-lbl">Hours</p>
+        </div>
+        <div>
+          <p id="minutes" class="time-val">0</p>
+          <p class="time-lbl">Minutes</p>
+        </div>
+        <div>
+          <p id="seconds" class="time-val">0</p>
+          <p class="time-lbl">Seconds</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="meta-text">This page runs in the browser, not the terminal. Save it as a .html file and open it with a browser to see the timer and styling correctly.</p>
+
+    <div class="letter-box">
+      <p class="letter-meta">Dear Enzaime & Substrate,</p>
+      <p class="letter-body">Your story is written in every shared laugh, every late-night conversation, and every second that passes knowing you're together. This countdown honors the time you've spent building something bright and silly side by side.</p>
+      <p class="letter-sign">With love, your page.</p>
+    </div>
+
+    <footer>
+      <p class="footer-title">Enzaime & Substrate</p>
+      <p class="footer-status">bond status: stable · observation period: indefinite 🧬</p>
+    </footer>
+  </div>
+
+  <script>
+    var START_DATE = new Date('2026-01-13T00:00:00');
+
+    function pad(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function runTimer() {
+      var now = new Date();
+      var diff = now.getTime() - START_DATE.getTime();
+
+      var secondsTotal = Math.floor(diff / 1000);
+      var days = Math.floor(secondsTotal / 86400);
+      var hours = Math.floor((secondsTotal % 86400) / 3600);
+      var minutes = Math.floor((secondsTotal % 3600) / 60);
+      var seconds = secondsTotal % 60;
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = pad(hours);
+      document.getElementById('minutes').textContent = pad(minutes);
+      document.getElementById('seconds').textContent = pad(seconds);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      runTimer();
+      setInterval(runTimer, 1000);
+    });
+  </script>
+</body>
+</html>
