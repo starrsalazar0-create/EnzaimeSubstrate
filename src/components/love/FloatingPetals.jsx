@@ -1,12 +1,14 @@
 import React from 'react';
 
 const particles = [
-  { left: '8%', top: '18%', size: 4, color: 'bg-white/70', duration: 10, delay: 0 },
-  { left: '22%', top: '65%', size: 3, color: 'bg-rose-200/60', duration: 12, delay: 1.5 },
-  { left: '42%', top: '30%', size: 5, color: 'bg-amber-200/60', duration: 14, delay: 0.8 },
-  { left: '68%', top: '22%', size: 3, color: 'bg-violet-200/60', duration: 11, delay: 2.2 },
-  { left: '78%', top: '70%', size: 4, color: 'bg-white/50', duration: 13, delay: 0.5 },
-  { left: '55%', top: '80%', size: 2, color: 'bg-rose-100/60', duration: 9, delay: 1 },
+  { left: '6%', top: '18%', size: 8, color: 'bg-white/80', duration: 8, delay: 0 },
+  { left: '22%', top: '65%', size: 6, color: 'bg-rose-300/80', duration: 10, delay: 1 },
+  { left: '42%', top: '30%', size: 10, color: 'bg-amber-300/80', duration: 12, delay: 0.8 },
+  { left: '68%', top: '22%', size: 7, color: 'bg-violet-300/80', duration: 9, delay: 2 },
+  { left: '78%', top: '70%', size: 8, color: 'bg-white/60', duration: 11, delay: 0.5 },
+  { left: '55%', top: '80%', size: 5, color: 'bg-rose-100/70', duration: 9, delay: 1 },
+  { left: '35%', top: '50%', size: 6, color: 'bg-sky-200/60', duration: 13, delay: 0.4 },
+  { left: '83%', top: '40%', size: 4, color: 'bg-purple-200/70', duration: 8, delay: 1.8 },
 ];
 
 export default function FloatingPetals() {
@@ -19,7 +21,7 @@ export default function FloatingPetals() {
       {particles.map((particle, idx) => (
         <div
           key={idx}
-          className={`absolute rounded-full ${particle.color} shadow-[0_0_20px_rgba(255,255,255,0.12)] animate-floating`}
+          className={`absolute rounded-full ${particle.color} shadow-[0_0_26px_rgba(255,255,255,0.18)] animate-floating`}
           style={{
             left: particle.left,
             top: particle.top,
@@ -27,6 +29,7 @@ export default function FloatingPetals() {
             height: `${particle.size}px`,
             animationDuration: `${particle.duration}s`,
             animationDelay: `${particle.delay}s`,
+            filter: 'blur(0.3px)',
           }}
         />
       ))}
